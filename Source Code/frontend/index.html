@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Offer Decision Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Job Offer Decision Companion</h1>
+
+<h2>Add Job Offers</h2>
+
+<input id="company" placeholder="Company Name">
+<input id="salary" placeholder="Salary (1-10)">
+<input id="growth" placeholder="Growth (1-10)">
+<input id="worklife" placeholder="Work-Life (1-10)">
+<input id="location" placeholder="Location (1-10)">
+<input id="stability" placeholder="Stability (1-10)">
+<button onclick="addJob()">Add Job</button>
+
+<h2>Set Your Priorities</h2>
+
+<input id="wsalary" placeholder="Salary Importance">
+<input id="wgrowth" placeholder="Growth Importance">
+<input id="wworklife" placeholder="Work-Life Importance">
+<input id="wlocation" placeholder="Location Importance">
+<input id="wstability" placeholder="Stability Importance">
+
+<br><br>
+<button onclick="evaluate()">Evaluate</button>
+
+<h2>Results</h2>
+<ul id="results"></ul>
+
+<script src="script.js"></script>
+</body>
+</html>
