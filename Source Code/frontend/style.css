@@ -6,22 +6,86 @@ body {
 
 .container {
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
 }
 
+/* ALL INPUTS BIGGER */
 input {
-    padding: 8px;
-    margin: 5px;
+    padding: 12px;
+    margin: 8px;
+    font-size: 16px;
+    width: 220px;
+    height: 45px;
 }
 
-button {
-    padding: 10px;
-    margin-top: 10px;
+/* FACTOR INPUT */
+#factorInput {
+    width: 300px;
+}
+
+/* JOB NAME FIELD */
+#company {
+    width: 300px;
+}
+
+/* JOB RATING INPUTS */
+#ratings input {
+    width: 220px;
+    height: 45px;
+    font-size: 16px;
+}
+
+/* MATRIX TABLE */
+#matrix {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+#matrix th, #matrix td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#matrix th {
+    background: #007bff;
+    color: white;
+}
+
+/* BEAUTIFUL REMOVE BUTTON */
+.remove-btn {
+    margin-left: 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.remove-btn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
+
+/* Factor List Alignment */
+#factorList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    padding: 6px 0;
+}
+
+.matrix-input {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+    text-align: center;
 }

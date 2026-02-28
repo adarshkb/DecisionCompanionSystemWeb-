@@ -3,14 +3,43 @@ let jobs = [];
 
 function addFactor(){
 
-    let factor = document.getElementById("factorInput").value;
+    let input = document.getElementById("factorInput");
+    let factor = input.value.trim();
+
+    if(!factor) return;
+
     factors.push(factor);
 
-    let li = document.createElement("li");
-    li.innerText = factor;
-    document.getElementById("factorList").appendChild(li);
-
+    updateFactorList();
     renderInputs();
+
+    // Reset field
+    input.value = "";
+}
+
+function removeFactor(index){
+    factors.splice(index,1);
+    updateFactorList();
+    renderInputs();
+    updateMatrix();
+}
+
+function updateFactorList(){
+
+    let list = document.getElementById("factorList");
+    list.innerHTML = "";
+
+    factors.forEach((f,i)=>{
+
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+    <span>${f}</span>
+    <button class="remove-btn" onclick="removeFactor(${i})">✖</button>
+`;
+
+        list.appendChild(li);
+    });
 }
 
 function renderInputs(){
@@ -22,13 +51,20 @@ function renderInputs(){
         let input = document.createElement("input");
         input.placeholder = f + " (1-10)";
         input.id = f;
+        input.type = "number";
+        input.min = 1;
+        input.max = 10;
         div.appendChild(input);
     });
 }
 
 function addJob(){
 
-    let company = document.getElementById("company").value;
+    let companyInput = document.getElementById("company");
+    let company = companyInput.value.trim();
+
+    if(!company) return;
+
     let ratings = {};
 
     factors.forEach(f => {
@@ -37,6 +73,12 @@ function addJob(){
 
     jobs.push({company, ratings});
     updateMatrix();
+
+    // Reset fields
+    companyInput.value = "";
+    factors.forEach(f=>{
+        document.getElementById(f).value="";
+    });
 }
 
 function updateMatrix(){
@@ -44,17 +86,34 @@ function updateMatrix(){
     let table = document.getElementById("matrix");
     table.innerHTML = "";
 
+    if(jobs.length === 0 || factors.length === 0) return;
+
     let header = "<tr><th>Job</th>";
     factors.forEach(f => header += "<th>"+f+"</th>");
     header += "</tr>";
 
     table.innerHTML += header;
 
-    jobs.forEach(job => {
-        let row = "<tr><td>"+job.company+"</td>";
-        factors.forEach(f => {
-            row += "<td>"+job.ratings[f]+"</td>";
+    jobs.forEach((job, jobIndex) => {
+
+        let row = `<tr><td>${job.company}</td>`;
+
+        factors.forEach(factor => {
+
+            row += `
+                <td>
+                    <input 
+                        type="number" 
+                        min="1" 
+                        max="10"
+                        value="${job.ratings[factor]}"
+                        onchange="editCell(${jobIndex}, '${factor}', this.value)"
+                        class="matrix-input"
+                    />
+                </td>
+            `;
         });
+
         row += "</tr>";
         table.innerHTML += row;
     });
@@ -75,9 +134,21 @@ function evaluateJobs(){
 
         data.results.forEach(job=>{
             let li = document.createElement("li");
-            li.innerText = job.company + " Score: " + job.score;
+            li.innerText = job.company + " → Score: " + job.score;
             results.appendChild(li);
         });
 
+        // FINAL RECOMMENDATION
+        let bestJob = data.results[0];
+
+        let explanation = document.getElementById("recommendation");
+
+        explanation.innerText =
+            bestJob.company +
+            " is the best option because it performs strongly in your highest priority factors.";
     });
+}
+
+function editCell(jobIndex, factor, value){
+    jobs[jobIndex].ratings[factor] = Number(value);
 }
