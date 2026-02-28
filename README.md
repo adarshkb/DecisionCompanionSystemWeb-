@@ -8,6 +8,3 @@ Brief description of your project.
 - Design Diagram
 - Build Process
 - Research Log
-
-## Design Diagram
-![Design Diagram](docs/design-diagram.png)
