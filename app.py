@@ -1,11 +1,10 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, render_template
 
 app = Flask(__name__)
-CORS(app)
 
-@app.route('/evaluate', methods=['POST'])
-def evaluate():
+@app.route("/")
+def home():
+    return render_template("index.html")
 
     data = request.json
     jobs = data["jobs"]
