@@ -1,10 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+# Home Page
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+# API Route (your decision logic)
+@app.route("/analyze", methods=["POST"])
+def analyze():
 
     data = request.json
     jobs = data["jobs"]
@@ -12,7 +18,7 @@ def home():
 
     weights = {}
 
-    # Auto-generate weights based on priority order
+    # Auto-generate weights
     total = len(factors)
     for i, factor in enumerate(factors):
         weights[factor] = total - i
@@ -20,7 +26,6 @@ def home():
     results = []
 
     for job in jobs:
-
         score = 0
         for factor in factors:
             score += job["ratings"][factor] * weights[factor]
@@ -38,6 +43,7 @@ def home():
         "results": results,
         "best_job": best_job
     })
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -145,11 +145,13 @@ function evaluateJobs(){
     return;
 }
 
-    fetch("http://127.0.0.1:5000/evaluate",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({jobs,factors})
-    })
+    fetch("/analyze", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+})
     .then(res=>res.json())
     .then(data=>{
 
