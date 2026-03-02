@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+    height: 100vh;
+}
+
+/* Center Layout */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Card */
+.app-card {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    width: 85%;
+    max-width: 1000px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #2563eb;
+}
+
+/* Sections */
+.section {
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+/* Inputs */
+input {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+/* Factor List */
+#factorList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 6px 0;
+}
+
+/* Remove Button */
+.remove-btn {
+    background: #ef4444;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    padding: 0;
+}
+
+/* Matrix */
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #e2e8f0;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #e0f2fe;
+}
+
+/* Result Box */
+#result {
+    margin-top: 20px;
+    background: #dcfce7;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}   
+
+.job-input {
+    width: 120px;
+}
+
+#recommendation-box {
+    margin-top: 30px;
+    background: linear-gradient(135deg, #fef9c3, #fde68a);
+    padding: 25px;
+    border-radius: 16px;
+    border: 2px solid #facc15;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#recommendation-box h2 {
+    margin-top: 0;
+    color: #b45309;
+}
+
+#recommendation {
+    font-size: 18px;
+    font-weight: 500;
+    color: #92400e;
+}
+
+.job-input {
+    width: 130px;
+}
+
+.error-msg {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 5px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Decision Companion - Job Offer Evaluator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="app-card">
+<h1>Decision Companion System - Job Offer Evaluator</h1>
+<p class="info">
+This Decision Companion System helps you compare multiple job offers based on your personal priorities. 
+Enter the factors that matter to you, rate each job, and the system will recommend the best option.
+</p>
+<div class="section">
+    <h3>Add Factors</h3>
+<h2>Step 1: Define Decision Factors (in order of importance)</h2>
+<p class="info">
+Enter the factors that matter to you when choosing a job.  
+The order you enter them represents priority —  
+the first factor is treated as most important.
+</p>
+<input id="factorInput" placeholder="Enter Factor (eg: Salary)">
+<p id="factorError" class="error-msg"></p>
+<button onclick="addFactor()">Add Factor</button>
+
+<ul id="factorList"></ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h3>Add Jobs</h3>
+<h2>Step 2: Add Job</h2>
+<p class="info">
+Rate each job from 1 to 10 for every factor.  
+1 = Poor / Least desirable  
+10 = Excellent / Most desirable
+</p>
+
+<input id="company" placeholder="Company Name">
+
+<div id="ratings"></div>
+<p id="ratingError" class="error-msg"></p>
+
+<button onclick="addJob()">Add Job</button>
+</div>
+
+<hr>
+
+<div class="section">
+    <h3>Decision Matrix</h3>
+<h2>Decision Matrix</h2>
+<table border="1" id="matrix"></table>
+</div>
+
+<hr>
+
+<p class="info">
+The system will recommend the best job based on your priorities.
+</p>
+<button onclick="evaluateJobs()">Evaluate Best Job</button>
+
+<h2>Results</h2>
+<ol id="results"></ol>
+<div id="recommendation-box">
+    <h2> Final Recommendation</h2>
+    <p id="recommendation"></p>
+</div>
+
+<script src="script.js"></script>
+</div>
+</div>
+</body>
+</html>
