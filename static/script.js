@@ -141,29 +141,24 @@ function updateMatrix(){
 function evaluateJobs(){
 
     if(jobs.length === 0 || factors.length === 0){
-        alert("Please add factors and at least one job before evaluating.");
-        return;
-    }
-
-    let data = {
-        jobs: jobs,
-        factors: factors
-    };
+    alert("Please add factors and at least one job before evaluating.");
+    return;
+}
 
     fetch("/analyze", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(data => {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+})
+    .then(res=>res.json())
+    .then(data=>{
 
         let results = document.getElementById("results");
         results.innerHTML = "";
 
-        data.results.forEach(job => {
+        data.results.forEach(job=>{
             let li = document.createElement("li");
             li.innerText = job.company + " → Score: " + job.score;
             results.appendChild(li);
@@ -171,14 +166,17 @@ function evaluateJobs(){
 
         let bestJob = data.best_job;
 
-        let topFactor = factors[0];
+// Find top priority factor (first entered factor)
+let topFactor = factors[0];
 
-        let summary = bestJob + " is the most suitable job based on your priorities. ";
-        summary += "It achieved the highest weighted score, especially performing well in your top priority factor: ";
-        summary += topFactor + ".";
+let summary = bestJob + " is the most suitable job based on your priorities. ";
+summary += "It achieved the highest weighted score, especially performing well in your top priority factor: ";
+summary += topFactor + ".";
 
-        document.getElementById("recommendation").innerText = summary;
-    });
+document.getElementById("recommendation").innerText = summary;
+});
+
+      
 }
 
 function editCell(jobIndex, factor, value){
