@@ -2,7 +2,7 @@
 
 ## Understanding of the Problem
 
-Upon reading and analyzing the task, and even asking to chatgpt and various ai tools I received many ecision Companion Systems that can be made. Then I thought of some problems that I face currently. Or some problems that I expect some ecision Companion Systems could have existed.
+Upon reading and analyzing the task, and even asking to chatgpt and various ai tools I received many Decision Companion Systems that can be made. Then I thought of some problems that I face currently. Or some problems that I expect some Decision Companion Systems could have existed.
 
 Choosing between multiple job offers is a complex real-world decision involving multiple competing criteria such as salary, stability, location, growth opportunities, work-life balance etc.
 This is such a kind of problem students or young professionals face during their carrer starting phase. Which releates to me a lot now rather than any other.
@@ -95,6 +95,14 @@ For all these respective error messages will be given indicating
 ---
 
 ## How to Run the Project
+## Deployed
+open the link : https://decisioncompanionsystemweb.onrender.com/
+
+This will redirect to the web app created. I created a new repository to deploy my website. All the contents used to create the web app is same as in the submitted repository. I am also including the repository which i have used for deploying my website. I have used "Render (https://render.com/)" for deploying this. A new repository is made only to formulate or to structure the way in which "Render" demands the files to be. And all the code contents remains the same.
+
+newly made repository link : https://github.com/adarshkb/DecisionCompanionSystemWeb-
+
+## Typical File Access Method
 
 git clone https://github.com/adarshkb/Decision-Companion-System
 cd Decision-Companion-System
@@ -169,6 +177,10 @@ The system uses:
 *Top priority factors influence results more.
 
 ### What would I improve with more time.
+
+I would make the system to make decisions for multiple problems.
+eventually making it a Decision Companion System for almost every problems we see.
+even now we can check for different problems and its solutions. But we cannot expect that the output is right or not. The Mathematical equations and algorithms are purely based for Job Offer Evaluator. I might find an algorithm aswell as the equations that satisfies for all such problems will be formulated.
 
 I would add a Dynamic Factor System.
 Factors no longer hold permanent weight or priority.
